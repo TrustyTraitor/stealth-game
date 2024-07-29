@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "InventorySO", menuName = "ScriptableObjects/Player/Inventory")]
 public class InventorySO : ScriptableObject
 {
+    [SerializeField]
     private int totalMoney;
     public int TotalMoney 
     { 
@@ -17,10 +18,10 @@ public class InventorySO : ScriptableObject
             onTotalMoneyUpdate?.Invoke();
         }
     }
-
     public event Action onTotalMoneyUpdate;
 
 
+    [SerializeField]
     private int money;
     public int Money { 
         get { return money; } 
@@ -30,20 +31,22 @@ public class InventorySO : ScriptableObject
             onMoneyUpdate?.Invoke();
         } 
     }
-
     public event Action onMoneyUpdate;
-    
 
-    public int KeyCardCount { 
-        get { return KeyCardCount; } 
-        set 
-        { 
-            KeyCardCount = value;
+
+    [SerializeField]
+    private int keyCardCount;
+    public int KeyCardCount
+    {
+        get { return keyCardCount; }
+        set
+        {
+            keyCardCount = value;
             onKeyCardUpdate?.Invoke();
-        } 
+        }
     }
-
     public event Action onKeyCardUpdate;
+
 
     private void OnDisable()
     {
