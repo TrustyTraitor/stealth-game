@@ -11,7 +11,7 @@ public class KeycardPickupSO : InteractActionSO
     private InventorySO inventory;
 
 
-    public override void Execute()
+    public override void Execute(GameObject obj = null)
     {
         inventory.KeyCardCount += 1;
     }

@@ -7,5 +7,5 @@ public abstract class InteractActionSO : ScriptableObject
     [field: SerializeField]
     public bool DestroyAfterInteract { get; protected set; } = false;
 
-    public abstract void Execute();
+    public abstract void Execute(GameObject obj = null);
 }

@@ -5,19 +5,22 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField]
-    private float interactRange = 2f;
+    private float interactRange = 5f;
+
+    [SerializeField]
+    private Camera camera;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Interact")) 
+        if (Input.GetButtonDown("Interact")) 
         {
-            Collider[] nearbyInteractables = Physics.OverlapSphere(transform.position, interactRange);
-            foreach (Collider c in nearbyInteractables)
-                if (c.TryGetComponent<Interactable>(out Interactable interactable))
-                {
-                    interactable.Interaction();
-                }
+            //Debug.DrawRay(camera.transform.position, camera.transform.forward, Color.red, 10f);
+            RaycastHit hit;
+            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, interactRange))
+            {
+                hit.collider.gameObject.GetComponent<Interactable>()?.Interaction();
+            }
         }
     }
 }

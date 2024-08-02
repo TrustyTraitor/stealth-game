@@ -43,6 +43,7 @@ public class InventorySO : ScriptableObject
         {
             keyCardCount = value;
             onKeyCardUpdate?.Invoke();
+            Debug.Log($"Keycards: {keyCardCount}");
         }
     }
     public event Action onKeyCardUpdate;

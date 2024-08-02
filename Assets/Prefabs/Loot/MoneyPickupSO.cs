@@ -12,7 +12,7 @@ public class MoneyPickupSO : InteractActionSO
     [SerializeField, DisallowNull]
     private InventorySO inventory;
 
-    public override void Execute()
+    public override void Execute(GameObject obj = null)
     {
 
         inventory.Money += MoneyAmount;

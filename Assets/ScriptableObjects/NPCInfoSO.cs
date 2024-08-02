@@ -22,6 +22,12 @@ public class NPCInfoSO : ScriptableObject
     [field: SerializeField, Tooltip("This is the delay amount for the onAlertAfterDelay which triggers after the NPC is alerted.")]
     public float alertDelay { get; private set; } = 2f;
 
+    [field: SerializeField, Tooltip("How long will the NPC Idle in one location before going back to patrol.")]
+    public float IdleTime { get; private set; } = 30f;
+
+    [field: SerializeField, Tooltip("How often the path finding is updated.")]
+    public float pathUpdateDelay { get; private set; } = 0.2f;
+
 
     [field: SerializeField, Tooltip("How often the NPC will recheck their vision"), Header("NPC Vision")]
     public float visionUpdateDelay { get; private set; } = 0.05f;

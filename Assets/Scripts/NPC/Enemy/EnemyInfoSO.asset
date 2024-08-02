@@ -15,7 +15,10 @@ MonoBehaviour:
   <maxHealth>k__BackingField: 100
   <maxSuspicion>k__BackingField: 100
   <suspicionResetTime>k__BackingField: 1
+  <suspicionFallOffRate>k__BackingField: 0.1
   <alertDelay>k__BackingField: 2
+  <IdleTime>k__BackingField: 5
+  <pathUpdateDelay>k__BackingField: 0.05
   <visionUpdateDelay>k__BackingField: 0.05
   <viewDistance>k__BackingField: 20
   <viewAngle>k__BackingField: 75

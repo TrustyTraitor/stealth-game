@@ -41,12 +41,9 @@ public class NPCVision : MonoBehaviour
     private float trueAngle;
     private bool objInFrontOfEnemy;
 
-    private void Awake()
+    private void Start()
     {
         StartCoroutine(nVisionUpdate());
-
-        // Fall back and hopefully temporary, i feel like there should be a better way than this
-        //playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     private IEnumerator nVisionUpdate()
@@ -92,6 +89,7 @@ public class NPCVision : MonoBehaviour
             onSuspicion?.Invoke(detectedList);
     }
 
+    /*
     // Based on code from this forum thread. Has been modified
     // https://discussions.unity.com/t/detect-player-in-range-of-enemy/687
     private IEnumerator VisionUpdate() 
@@ -145,4 +143,5 @@ public class NPCVision : MonoBehaviour
         }
         
     }
+    */
 }

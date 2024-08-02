@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
     [SerializeField]
     private InteractActionSO interactAction;
+
+    [SerializeField, OptionalField]
+    private GameObject interactTarget = null;
 
     private bool DestroyAfterInteract = false;
 
@@ -14,10 +18,9 @@ public class Interactable : MonoBehaviour
         DestroyAfterInteract = interactAction.DestroyAfterInteract;
     }
 
-    public void Interaction() 
+    public virtual void Interaction() 
     {
-        interactAction?.Execute();
-
+        interactAction?.Execute(interactTarget);        
         if (DestroyAfterInteract) Destroy(gameObject);
     }
 }
