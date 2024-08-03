@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988988719246278141}
-  - component: {fileID: 461271031799503899}
-  - component: {fileID: 8264213120935684274}
   m_Layer: 0
   m_Name: Money_Pyramid
   m_TagString: Untagged
@@ -34,40 +32,6 @@ Transform:
   - {fileID: 6529191629420110354}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &461271031799503899
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8523378887405146778}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.25, y: 0.1, z: 0.2}
-  m_Center: {x: -0.035, y: 0, z: 0}
---- !u!114 &8264213120935684274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8523378887405146778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fabe698fb4f7643b088908439571fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactAction: {fileID: 11400000, guid: 51dcf91197d99cb4dbdd9921910f70b8, type: 2}
 --- !u!1001 &6526446297171670064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,8 +87,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1268556344642512, guid: b137b62fa6e2389428747646ba7454f7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2875446481649156076}
   m_SourcePrefab: {fileID: 100100000, guid: b137b62fa6e2389428747646ba7454f7, type: 3}
+--- !u!1 &6527433206740320224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1268556344642512, guid: b137b62fa6e2389428747646ba7454f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6526446297171670064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2875446481649156076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527433206740320224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fabe698fb4f7643b088908439571fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactAction: {fileID: 11400000, guid: 51dcf91197d99cb4dbdd9921910f70b8, type: 2}
+  interactTarget: {fileID: 0}
 --- !u!4 &6529191629420110354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4153292340762146, guid: b137b62fa6e2389428747646ba7454f7,

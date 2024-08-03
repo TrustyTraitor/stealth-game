@@ -15,6 +15,7 @@ public class GuardContext
 
     public NPCVisionN vision { get; private set; }
 
+
     public GuardContext(MonoBehaviour gameObject, NPCInfoSO info, NavMeshAgent agent, Animator anim, Transform[] patrolPoints, NPCVisionN vision)
     {
         this.info = info;

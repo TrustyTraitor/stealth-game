@@ -65,7 +65,6 @@ public class GunSystem : MonoBehaviour
             {
                 ammoFired = 0;
                 Shoot();
-                Debug.Log(string.Format("Ammo: {0}/{1}", loadedAmmo, magSize));
             }
             else Debug.Log("Cannot Fire");
             
@@ -128,10 +127,8 @@ public class GunSystem : MonoBehaviour
         //Debug.DrawRay(playerCam.transform.position, direction, Color.blue, 2f);
         if (Physics.Raycast(playerCam.transform.position, direction, out rayHit, range, enemyLayer)) 
         {
-            Debug.Log("Hit something");
             if (rayHit.collider.CompareTag("Enemy"))
             {
-                Debug.Log("Tag");
                 rayHit.collider.GetComponent<EnemyTarget>().TakeDamage(damage);
             }
         }

@@ -9,8 +9,14 @@ public class ChaseState : GuardState
     private GameObject target;
     private bool isTargetPlayer = false;
     private IEnumerator pathUpdateHandle;
+    private IEnumerator ShootingHandler;
 
     public ChaseState(GuardContext context, GuardBrain.GuardStates key) : base(context, key) {}
+
+    private float distanceToPlayer;
+
+    private bool hasStartedShooting = false;
+    private HealthComponent playerHC;
 
     public override void EnterState()
     {
@@ -21,20 +27,34 @@ public class ChaseState : GuardState
 
         pathUpdateHandle = UpdatePath();
         context.parentObj.StartCoroutine(pathUpdateHandle);
+
+        ShootingHandler = Shooty();
     }
 
     public override void ExitState()
     {
+        Debug.Log("Exiting State for some reason?");
         context.vision.onSuspicion -= HandleSusObjects;
 
         context.parentObj.StopCoroutine(pathUpdateHandle);
+
+        if (hasStartedShooting)
+            context.parentObj.StopCoroutine(ShootingHandler);
+
+        hasStartedShooting = false;
     }
 
     public override void UpdateState()
     {
         if ( target != null)
         {
-            LookAtTarget();        
+            LookAtTarget();
+
+            if (isTargetPlayer && !hasStartedShooting)
+            {
+                hasStartedShooting = true;
+                context.parentObj.StartCoroutine(ShootingHandler);
+            }
         }
 
         context.animator.SetFloat("Speed", context.agent.velocity.sqrMagnitude);
@@ -63,7 +83,6 @@ public class ChaseState : GuardState
         {
             if (target != null)
             {
-                Debug.Log($"UpdatePath: {target.name}");
                 context.agent.SetDestination(target.transform.position);
             }
 
@@ -77,17 +96,16 @@ public class ChaseState : GuardState
         float smallest_distance = Mathf.Infinity;
         float distance = 0f;
 
-        Debug.Log($"handle sus obj");
         // I hate this entire function but... oh well
         if (isTargetPlayer) return;
-        Debug.Log("Here2");
+
         foreach (GameObject obj in detectedObjs)
         {
             if (obj.tag.Equals("Player"))
             {
-                Debug.Log("Player Found");
                 target = obj;
                 isTargetPlayer = true;
+                playerHC = target.GetComponent<HealthComponent>();
                 return;
             }
 
@@ -99,7 +117,20 @@ public class ChaseState : GuardState
             }
         }
 
-        Debug.Log($"{closest.name}");
         target = closest;
+    }
+
+    private IEnumerator Shooty()
+    {
+        while (true)
+        {
+            distanceToPlayer = Vector3.Distance(context.parentObj.transform.position, target.transform.position);
+            if (distanceToPlayer <= context.agent.stoppingDistance)
+            {
+                playerHC.health -= context.info.AttackDamage;
+            }
+
+            yield return new WaitForSeconds(context.info.AttackSpeed);
+        }
     }
 }

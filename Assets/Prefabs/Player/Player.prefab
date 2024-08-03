@@ -272,7 +272,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3039174146229056879}
-  - component: {fileID: 1690847782503578630}
   - component: {fileID: 4974884888286638449}
   - component: {fileID: 817626670689392513}
   - component: {fileID: 1654475961243507080}
@@ -304,27 +303,6 @@ Transform:
   - {fileID: 7724503336048418995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1690847782503578630
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8406228824703689474}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2c342dfe227b6b84392490d0b26dd149, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!143 &4974884888286638449
 CharacterController:
   m_ObjectHideFlags: 0
@@ -345,7 +323,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -405,7 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cabb0fdac1d5f24f84c7a7c91862875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 2
+  interactRange: 4
+  Camera: {fileID: 4754280578452895465}
 --- !u!114 &2174607735864005538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +481,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64891215406058108, guid: 9e6ea3cbe64249742b16c124fd3abbc8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -547,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   fireRate: 0.15
-  spread: 3
+  spread: 0.1
   range: 100
   reloadTime: 1
   burstSpeed: 0

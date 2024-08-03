@@ -14,7 +14,6 @@ public class MoneyPickupSO : InteractActionSO
 
     public override void Execute(GameObject obj = null)
     {
-
         inventory.Money += MoneyAmount;
     }
 }

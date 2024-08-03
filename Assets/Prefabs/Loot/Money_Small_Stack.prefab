@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3384406147977075389}
-  - component: {fileID: 5460168609721369783}
-  - component: {fileID: 5499537519908676793}
   m_Layer: 0
   m_Name: Money_Small_Stack
   m_TagString: Untagged
@@ -34,40 +32,6 @@ Transform:
   - {fileID: 598394747507810545}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5460168609721369783
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055863950011840764}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.14, y: 0.05, z: 0.13}
-  m_Center: {x: 0.03, y: 0.02, z: 0}
---- !u!114 &5499537519908676793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055863950011840764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fabe698fb4f7643b088908439571fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactAction: {fileID: 11400000, guid: 4d167d6f490d2c74baa2936a82706919, type: 2}
 --- !u!1001 &602914639929076937
 PrefabInstance:
   m_ObjectHideFlags: 0

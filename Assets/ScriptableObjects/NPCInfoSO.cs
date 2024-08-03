@@ -40,4 +40,9 @@ public class NPCInfoSO : ScriptableObject
 
     [field: SerializeField]
     public LayerMask layerMask { get; private set; }
+
+    [field: SerializeField, Header("Weapon Info")]
+    public float AttackSpeed { get; private set; } = 1.5f;
+    [field: SerializeField]
+    public int AttackDamage { get; private set; }  = 10;
 }
