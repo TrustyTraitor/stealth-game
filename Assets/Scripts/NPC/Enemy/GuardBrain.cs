@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
 
-
-
+[RequireComponent(typeof(NPCVisionN))]
 public class GuardBrain : StateManager<GuardBrain.GuardStates>
 {
     public enum GuardStates
@@ -21,16 +20,19 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
     [SerializeField]
     private Transform[] patrolPoints;
 
-
     public GuardContext context {  get; private set; }
     private NavMeshAgent agent;
     private NPCSuspicionHandler suspicionHandle;
+    private Animator animator;
+    private NPCVisionN vision;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        vision = GetComponent<NPCVisionN>();
 
-        context = new GuardContext(this, info, agent, patrolPoints);
+        context = new GuardContext(this, info, agent, animator, patrolPoints, vision);
         suspicionHandle = GetComponent<NPCSuspicionHandler>();
 
         suspicionHandle.onAlertAfterDelay += UpdateIsAlertContext;

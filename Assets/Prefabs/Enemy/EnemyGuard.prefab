@@ -1553,7 +1553,7 @@ GameObject:
   - component: {fileID: 3744370841424712015}
   - component: {fileID: 7805379878274916971}
   - component: {fileID: 9205173386480080951}
-  - component: {fileID: 660678228923135321}
+  - component: {fileID: 7701771838596267029}
   m_Layer: 6
   m_Name: EnemyGuard
   m_TagString: Enemy
@@ -1699,7 +1699,7 @@ CapsuleCollider:
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &660678228923135321
+--- !u!114 &7701771838596267029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1712,10 +1712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: 2b3c6a2d5f9541844b3542975e160e7a, type: 2}
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolPoints: []
 --- !u!1 &7030121367302831908
 GameObject:
   m_ObjectHideFlags: 0

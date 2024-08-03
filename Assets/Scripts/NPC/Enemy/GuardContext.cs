@@ -11,12 +11,17 @@ public class GuardContext
     public NavMeshAgent agent { get; private set; }
 
     public Transform[] patrolPoints { get; private set; }
+    public Animator animator { get; private set; }
 
-    public GuardContext(MonoBehaviour gameObject, NPCInfoSO info, NavMeshAgent agent, Transform[] patrolPoints)
+    public NPCVisionN vision { get; private set; }
+
+    public GuardContext(MonoBehaviour gameObject, NPCInfoSO info, NavMeshAgent agent, Animator anim, Transform[] patrolPoints, NPCVisionN vision)
     {
         this.info = info;
         this.agent = agent;
         this.patrolPoints = patrolPoints;
         this.parentObj = gameObject;
+        this.animator = anim;
+        this.vision = vision;
     }
 }

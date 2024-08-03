@@ -40,7 +40,7 @@ public class NPCSuspicionHandler : MonoBehaviour
             suspicion = Mathf.Clamp(value, 0f, npcInfoSO.maxSuspicion);
             onSuspicionUpdate?.Invoke();
             
-            if (suspicion >= npcInfoSO.maxSuspicion) isAlerted = true;
+            if (suspicion >= npcInfoSO.maxSuspicion) IsAlerted = true;
         }
     }
 

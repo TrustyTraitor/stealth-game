@@ -11,22 +11,21 @@ public class IdleState : GuardState
     public override void EnterState()
     {
         EnterIdleTime = Time.time;
-        Debug.Log($"Enter idle: {EnterIdleTime}");
     }
 
     public override void ExitState()
     {
-        Debug.Log($"Exit Time: {CurrentTime}");
     }
 
     public override void UpdateState()
     {
         CurrentTime = Time.time;
+        context.animator.SetFloat("Speed", context.agent.velocity.sqrMagnitude);
     }
 
     public override GuardBrain.GuardStates GetNextState()
     {
-        //if (context.isAlerted) return GuardBrain.GuardStates.Chase;
+        if (context.isAlerted) return GuardBrain.GuardStates.Chase;
         if (CurrentTime - EnterIdleTime >= context.info.IdleTime) return GuardBrain.GuardStates.Patrol;
 
         return StateKey;

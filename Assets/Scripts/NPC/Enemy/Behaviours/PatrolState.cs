@@ -26,8 +26,6 @@ public class PatrolState : GuardState
 
         pathUpdateDelayHandler = UpdatePath();
         context.parentObj.StartCoroutine(pathUpdateDelayHandler);
-
-        Debug.Log($"Moving to Point: {targetPoint}   time: {Time.time}");
     }
 
     public override void ExitState()
@@ -38,12 +36,12 @@ public class PatrolState : GuardState
 
     public override void UpdateState()
     {
-        
+        context.animator.SetFloat("Speed", context.agent.velocity.sqrMagnitude);
     }
 
     public override GuardBrain.GuardStates GetNextState()
     {
-        //if (context.isAlerted) return GuardBrain.GuardStates.Chase;
+        if (context.isAlerted) return GuardBrain.GuardStates.Chase;
 
         if (context.agent.pathStatus == NavMeshPathStatus.PathComplete
             && context.agent.remainingDistance <= 0.01f)

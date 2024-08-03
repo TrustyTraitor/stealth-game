@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
   <maxSuspicion>k__BackingField: 100
-  <suspicionResetTime>k__BackingField: 1
+  <suspicionResetTime>k__BackingField: 2
   <suspicionFallOffRate>k__BackingField: 0.1
   <alertDelay>k__BackingField: 2
   <IdleTime>k__BackingField: 5

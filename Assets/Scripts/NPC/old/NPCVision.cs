@@ -22,15 +22,16 @@ public class NPCVision : MonoBehaviour
     private bool playerIsSeen;
     private bool playerWasSeen;
 
+    /*
     // Event delegate
     public delegate void OnPlayerDetection();
     public event OnPlayerDetection onPlayerDetection;
     
     public delegate void OnPlayerLost();
     public event OnPlayerLost onPlayerLost;
+    */
 
     // New versions of OnPlayerDetection and OnPlayerLost
-    // It is more generic as to 
     public event Action<List<GameObject>> onSuspicion;
 
     [SerializeField]
