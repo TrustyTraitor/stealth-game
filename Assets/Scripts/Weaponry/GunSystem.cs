@@ -39,6 +39,13 @@ public class GunSystem : MonoBehaviour
     public delegate void OnAmmoChange();
     public event OnAmmoChange onAmmoChange;
 
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         loadedAmmo = magSize;
@@ -144,6 +151,8 @@ public class GunSystem : MonoBehaviour
         Destroy(muzzleFlashPart, totalDuration);
 
         Invoke("StopShooting", fireRate);
+
+        audioSource.Play();
 
         if (ammoFired < shotsPerBurst && loadedAmmo > 0) 
         {

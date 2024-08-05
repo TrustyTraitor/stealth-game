@@ -25,14 +25,16 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
     private NPCSuspicionHandler suspicionHandle;
     private Animator animator;
     private NPCVisionN vision;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         vision = GetComponent<NPCVisionN>();
+        audioSource = GetComponent<AudioSource>();
 
-        context = new GuardContext(this, info, agent, animator, patrolPoints, vision);
+        context = new GuardContext(this, info, agent, animator, patrolPoints, vision, audioSource);
         suspicionHandle = GetComponent<NPCSuspicionHandler>();
 
         suspicionHandle.onAlertAfterDelay += UpdateIsAlertContext;

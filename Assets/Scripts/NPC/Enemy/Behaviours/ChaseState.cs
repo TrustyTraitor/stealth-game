@@ -128,6 +128,7 @@ public class ChaseState : GuardState
             if (distanceToPlayer <= context.agent.stoppingDistance)
             {
                 playerHC.health -= context.info.AttackDamage;
+                context.audioSource.Play();
             }
 
             yield return new WaitForSeconds(context.info.AttackSpeed);

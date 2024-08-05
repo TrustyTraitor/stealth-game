@@ -15,8 +15,9 @@ public class GuardContext
 
     public NPCVisionN vision { get; private set; }
 
+    public AudioSource audioSource { get; private set; }
 
-    public GuardContext(MonoBehaviour gameObject, NPCInfoSO info, NavMeshAgent agent, Animator anim, Transform[] patrolPoints, NPCVisionN vision)
+    public GuardContext(MonoBehaviour gameObject, NPCInfoSO info, NavMeshAgent agent, Animator anim, Transform[] patrolPoints, NPCVisionN vision, AudioSource audioSource)
     {
         this.info = info;
         this.agent = agent;
@@ -24,5 +25,6 @@ public class GuardContext
         this.parentObj = gameObject;
         this.animator = anim;
         this.vision = vision;
+        this.audioSource = audioSource;
     }
 }
