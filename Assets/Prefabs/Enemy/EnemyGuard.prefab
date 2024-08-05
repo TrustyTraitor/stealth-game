@@ -1713,10 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: 2b3c6a2d5f9541844b3542975e160e7a, type: 2}
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolPoints: []
 --- !u!1 &7030121367302831908
 GameObject:
   m_ObjectHideFlags: 0
