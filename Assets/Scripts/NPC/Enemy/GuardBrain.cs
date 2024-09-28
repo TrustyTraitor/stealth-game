@@ -18,6 +18,9 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
     private NPCInfoSO info;
 
     [SerializeField]
+    private PlayerDetectedAlert alert;
+
+    [SerializeField]
     private Transform[] patrolPoints;
 
     public GuardContext context {  get; private set; }
@@ -38,8 +41,15 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
         suspicionHandle = GetComponent<NPCSuspicionHandler>();
 
         suspicionHandle.onAlertAfterDelay += UpdateIsAlertContext;
+        alert.onPlayerAlert += PlayerGlobalAlert;
 
         InitStates();
+    }
+
+    private void OnDisable()
+    {
+        suspicionHandle.onAlertAfterDelay -= UpdateIsAlertContext;
+        alert.onPlayerAlert -= PlayerGlobalAlert;
     }
 
     private void InitStates()
@@ -54,5 +64,14 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
     public void UpdateIsAlertContext()
     {
         context.isAlerted = true;
+
+        alert.onPlayerAlert -= PlayerGlobalAlert;
+        alert.AlertListeners();
+    }
+
+    public void PlayerGlobalAlert()
+    {
+        context.isAlerted = true;
+        
     }
 }

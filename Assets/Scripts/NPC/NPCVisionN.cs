@@ -13,6 +13,8 @@ public class NPCVisionN : MonoBehaviour
 {
     #region Variables
 
+    public bool isEnabled = true;
+
     [SerializeField, Tooltip("The transform of where the NPC eyes are located")]
     private Transform eyeTransform;
 
@@ -53,7 +55,8 @@ public class NPCVisionN : MonoBehaviour
     {
         while (true)
         {
-            DetectionCheck();
+            if (isEnabled)
+                DetectionCheck();
 
             yield return new WaitForSeconds(npcInfoSO.visionUpdateDelay);
         }

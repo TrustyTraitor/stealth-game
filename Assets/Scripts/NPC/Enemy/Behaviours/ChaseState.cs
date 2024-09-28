@@ -33,7 +33,6 @@ public class ChaseState : GuardState
 
     public override void ExitState()
     {
-        Debug.Log("Exiting State for some reason?");
         context.vision.onSuspicion -= HandleSusObjects;
 
         context.parentObj.StopCoroutine(pathUpdateHandle);

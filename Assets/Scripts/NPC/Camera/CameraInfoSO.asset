@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152bca0b88360254fba9cc4430fdc96d, type: 3}
+  m_Name: CameraInfoSO
+  m_EditorClassIdentifier: 
+  <maxHealth>k__BackingField: 1
+  <maxSuspicion>k__BackingField: 100
+  <suspicionResetTime>k__BackingField: 2
+  <suspicionFallOffRate>k__BackingField: 0.1
+  <alertDelay>k__BackingField: 2
+  <IdleTime>k__BackingField: 10
+  <pathUpdateDelay>k__BackingField: 0.2
+  <visionUpdateDelay>k__BackingField: 0.05
+  <viewDistance>k__BackingField: 20
+  <viewAngle>k__BackingField: 75
+  <layerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 128
+  <AttackSpeed>k__BackingField: 1.5
+  <AttackDamage>k__BackingField: 10
