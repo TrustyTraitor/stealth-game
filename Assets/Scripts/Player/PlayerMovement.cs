@@ -53,15 +53,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Crouch") && !isCrouching)
         {
-            transform.localScale = crouchHeight;
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+            //transform.localScale = crouchHeight;
+            //transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+            controller.height = 1.0f;
+            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 0.5f, groundCheck.position.z);
             isCrouching = true;
 
             //gunSlot.transform.localScale = new Vector3(0.07f, 0.07f,0.07f);
         }
         else if (Input.GetButtonDown("Crouch") && isCrouching)
         {
-            transform.localScale = standingHeight;
+            //transform.localScale = standingHeight;
+            controller.height = 2.0f;
+            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 0.5f, groundCheck.position.z);
             isCrouching = false;
             //gunSlot.transform.localScale = new Vector3(0.07f, 0.07f, 0.07f);
 
