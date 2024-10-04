@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aab5460df1471b4ab079a7de1be73ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standingSuspicion: 0
   suspicion: 0
   <detectionNode>k__BackingField: {fileID: 276633578}
 --- !u!135 &276633575
@@ -3840,6 +3841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: suspicion
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885194232435791986, guid: 11bfe675e97420b4d9ae2f7872fcffa3,
+        type: 3}
+      propertyPath: standingSuspicion
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4968675480645038184, guid: 11bfe675e97420b4d9ae2f7872fcffa3,
         type: 3}

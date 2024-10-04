@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject gunSlot;
 
+    private ObjectSuspicion suspicion;
+
     Vector3 velocity;
     //bool isGrounded;
     bool isMoving;
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        suspicion = GetComponent<ObjectSuspicion>();
     }
 
     private bool isGrounded() 
@@ -53,22 +56,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Crouch") && !isCrouching)
         {
-            //transform.localScale = crouchHeight;
-            //transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
             controller.height = 1.0f;
             groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 0.5f, groundCheck.position.z);
             isCrouching = true;
 
-            //gunSlot.transform.localScale = new Vector3(0.07f, 0.07f,0.07f);
         }
         else if (Input.GetButtonDown("Crouch") && isCrouching)
         {
-            //transform.localScale = standingHeight;
             controller.height = 2.0f;
             groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 0.5f, groundCheck.position.z);
             isCrouching = false;
-            //gunSlot.transform.localScale = new Vector3(0.07f, 0.07f, 0.07f);
 
+            
+        }
+
+        if (isCrouching)
+        {
+            suspicion.Suspicion = suspicion.baseSuspicion;
+        }
+        else
+        {
+            suspicion.Suspicion = suspicion.standingSuspicion;
         }
 
         // stop y velocity

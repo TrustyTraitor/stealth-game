@@ -6,6 +6,11 @@ using UnityEngine.Assertions;
 public class ObjectSuspicion : MonoBehaviour
 {
     [SerializeField]
+    public float standingSuspicion;
+
+    public float baseSuspicion { get; private set; }
+
+    [SerializeField]
     private float suspicion;
 
     [field: SerializeField]
@@ -14,7 +19,12 @@ public class ObjectSuspicion : MonoBehaviour
     public float Suspicion
     {  
         get { return suspicion; }
-        private set { suspicion = value; }
+        set { suspicion = value; }
+    }
+
+    private void Start()
+    {
+        baseSuspicion = suspicion;
     }
 
     private void Awake()
