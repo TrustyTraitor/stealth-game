@@ -12,6 +12,8 @@ public class CompleteHeistSO : InteractActionSO
     public override void Execute(GameObject obj = null)
     {
         if (inventory.Money > 500000)
+        {
             obj.SetActive(true);
+        }
     }
 }

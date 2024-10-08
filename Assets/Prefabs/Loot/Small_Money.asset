@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Small_Money
   m_EditorClassIdentifier: 
   <DestroyAfterInteract>k__BackingField: 1
-  MoneyAmount: 35000
+  MoneyAmount: 500
+  XpAmount: 100
   inventory: {fileID: 11400000, guid: 024f2257c512f8849b9a3dd6a674e824, type: 2}

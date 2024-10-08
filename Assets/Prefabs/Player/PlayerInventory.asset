@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c053405d6937b74ab50ade74666b788, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  totalMoney: 1804000
+  totalMoney: 71000
   money: 0
-  keyCardCount: 0
+  totalXp: 2900
+  xpEarned: 0
+  playerLevel: 0
+  keyCardCount: 1
