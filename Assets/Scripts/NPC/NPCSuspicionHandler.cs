@@ -106,7 +106,8 @@ public class NPCSuspicionHandler : MonoBehaviour
             objSus = obj.GetComponent<ObjectSuspicion>();
             if (objSus != null) 
             {
-                Suspicion += (objSus.Suspicion * (npcInfoSO.visionUpdateDelay + Time.deltaTime));
+                Suspicion += (objSus.GetModSuspicion() * (npcInfoSO.visionUpdateDelay + Time.deltaTime));
+                Debug.Log(objSus.GetModSuspicion());
             }
         }
     }

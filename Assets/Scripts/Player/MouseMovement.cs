@@ -16,6 +16,8 @@ public class MouseMovement : MonoBehaviour
     public float upperClamp = -90f;
     public float lowerClamp = 90f;
 
+    public GameManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +27,20 @@ public class MouseMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Get mouse input
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensX * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensY * Time.deltaTime;
+        if (manager.IsInteractingWithUI == false)
+        {
+            //Get mouse input
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensX * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensY * Time.deltaTime;
 
-        xRotation -= mouseY;
+            xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, upperClamp, lowerClamp);
+            xRotation = Mathf.Clamp(xRotation, upperClamp, lowerClamp);
 
-        yRotation += mouseX;
+            yRotation += mouseX;
 
-        transform.localRotation = Quaternion.Euler(0, yRotation, 0f);
-        Camera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0f);
+            transform.localRotation = Quaternion.Euler(0, yRotation, 0f);
+            Camera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0f);
+        }
     }
 }

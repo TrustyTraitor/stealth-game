@@ -1593,6 +1593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52171afb81007204294d9606592dc3ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 1
   eyeTransform: {fileID: 5802124815999458416}
   npcInfoSO: {fileID: 11400000, guid: 2b3c6a2d5f9541844b3542975e160e7a, type: 2}
 --- !u!114 &357838223956023946
@@ -1620,6 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ad685b2ffb7244698fce110cd394c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skills: {fileID: 11400000, guid: 70eaf692869ee94409ed4685b9ca9339, type: 2}
   maxHealth: 100
   Health: 100
 --- !u!114 &8869637557713400046
@@ -1714,6 +1716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: 2b3c6a2d5f9541844b3542975e160e7a, type: 2}
+  alert: {fileID: 11400000, guid: 48a41b3da9559904abb21f00c1c40844, type: 2}
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}

@@ -12,7 +12,7 @@ public class InventorySO : ScriptableObject
     public int TotalMoney 
     { 
         get { return totalMoney; }
-        private set
+        set
         { 
             totalMoney = value;
             onTotalMoneyUpdate?.Invoke();
@@ -72,8 +72,10 @@ public class InventorySO : ScriptableObject
         set
         {
             playerLevel = value;
+            onLevelUpdate?.Invoke();
         }
     }
+    public event Action onLevelUpdate;
 
     [SerializeField, Header("Heist Items")]
     private int keyCardCount;

@@ -16,10 +16,16 @@ public class ObjectSuspicion : MonoBehaviour
     [field: SerializeField]
     public Transform detectionNode { get; private set; }
 
+    public PlayerSkills skills;
+
     public float Suspicion
     {  
         get { return suspicion; }
         set { suspicion = value; }
+    }
+
+    public float GetModSuspicion() {
+        return suspicion * (1.0f - (skills.stealthMod/100.0f));
     }
 
     private void Start()

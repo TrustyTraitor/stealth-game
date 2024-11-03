@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MoneyCounter : MonoBehaviour
+public class LevelUIupdate : MonoBehaviour
 {
     public InventorySO inventory;
-    public TMP_Text moneyLabel;
-    public TMP_Text totalMoneyLabel;
+    public TMP_Text levelLabel;
 
     private void Awake()
     {
         if (inventory != null)
         {
             inventory.onMoneyUpdate += OnMoneyUpdate;
-            moneyLabel.text = $"$ {inventory.Money}";
-            totalMoneyLabel.text = $"$ {inventory.TotalMoney}";
+            levelLabel.text = $"Level: {inventory.PlayerLevel}";
         }
     }
 
@@ -23,8 +21,7 @@ public class MoneyCounter : MonoBehaviour
     {
         if (inventory != null)
         {
-            moneyLabel.text = $"$ {inventory.Money}";
-            totalMoneyLabel.text = $"$ {inventory.TotalMoney}";
+            levelLabel.text = $"Level: {inventory.PlayerLevel}";
         }
     }
 }

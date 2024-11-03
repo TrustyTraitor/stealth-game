@@ -1,18 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
+    public PlayerSkills skills;
+
     [SerializeField]
-    public int maxHealth;
+    private int MaxHealth;
+    public int maxHealth { 
+        get { return MaxHealth; } 
+        set 
+        { 
+            MaxHealth = value;
+            if (maxHealthChange != null) maxHealthChange();
+        } 
+    }
 
     public int health 
     {
         get { return Health; }
         set 
         {
-            Health = value;
+            //Debug.Log($"Value: {value}");
+            //Debug.Log($"Health: {Health}");
+            if (value < health)
+            {
+                Health -= (int)((health - value) * (1.0f - (skills.shieldMod/100.0f)));
+            }
+            else {
+                Health = value;
+            }
+
             if (healthChange != null)
                 healthChange();
             if (Health <= 0 && onZeroHealth != null) 
@@ -21,7 +41,7 @@ public class HealthComponent : MonoBehaviour
     }
 
     [SerializeField]
-    private int Health;
+    protected int Health;
 
     public delegate void OnHealthChange();
     public OnHealthChange healthChange;
@@ -32,8 +52,11 @@ public class HealthComponent : MonoBehaviour
     public delegate void OnMaxHealthChange();
     public event OnMaxHealthChange maxHealthChange;
 
-    private void Awake()
+    private void Start()
     {
+        //Debug.Log((1.0f + (skills.healthMod / 100.0f)) * maxHealth);
+
+        maxHealth = (int)((1.0f + (skills.healthMod/100.0f)) * maxHealth);
         health = maxHealth;
 
     }

@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c053405d6937b74ab50ade74666b788, type: 3}
-  m_Name: PlayerInventory
+  m_Script: {fileID: 11500000, guid: 0909aacce1811e846ab7848a3b649d95, type: 3}
+  m_Name: GameManager
   m_EditorClassIdentifier: 
-  totalMoney: 2147383647
-  money: 0
-  totalXp: 250000
-  xpEarned: 0
-  playerLevel: 10
-  keyCardCount: 1
+  isInteractingWithUI: 0

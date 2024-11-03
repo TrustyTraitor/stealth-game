@@ -41,6 +41,7 @@ public class GunSystem : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public GameManager gameManager;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -59,22 +60,25 @@ public class GunSystem : MonoBehaviour
 
     private void InputHandler()
     {
-        if (isFullAuto) isShooting = Input.GetButton("Fire1");
-        else isShooting = Input.GetButtonDown("Fire1");
-
-        // Reload
-        if (Input.GetButtonDown("Reload") && !isReloading && loadedAmmo < magSize) Reload();
-
-        // Shoot
-        if (isReadyToFire && isShooting && !isReloading)
+        if (gameManager.IsInteractingWithUI == false)
         {
-            if (loadedAmmo > 0)
+            if (isFullAuto) isShooting = Input.GetButton("Fire1");
+            else isShooting = Input.GetButtonDown("Fire1");
+
+            // Reload
+            if (Input.GetButtonDown("Reload") && !isReloading && loadedAmmo < magSize) Reload();
+
+            // Shoot
+            if (isReadyToFire && isShooting && !isReloading)
             {
-                ammoFired = 0;
-                Shoot();
-            }
-            else Debug.Log("Cannot Fire");
+                if (loadedAmmo > 0)
+                {
+                    ammoFired = 0;
+                    Shoot();
+                }
+                else Debug.Log("Cannot Fire");
             
+            }
         }
     }
 
