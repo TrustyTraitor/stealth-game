@@ -107,7 +107,6 @@ public class NPCSuspicionHandler : MonoBehaviour
             if (objSus != null) 
             {
                 Suspicion += (objSus.GetModSuspicion() * (npcInfoSO.visionUpdateDelay + Time.deltaTime));
-                Debug.Log(objSus.GetModSuspicion());
             }
         }
     }

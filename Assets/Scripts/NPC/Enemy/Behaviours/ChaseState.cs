@@ -23,6 +23,7 @@ public class ChaseState : GuardState
         context.vision.onSuspicion += HandleSusObjects;
 
         context.agent.stoppingDistance = 10f;
+        context.isAlerted = true;
         context.animator.SetBool("isAlerted", context.isAlerted);
 
         pathUpdateHandle = UpdatePath();
@@ -54,6 +55,9 @@ public class ChaseState : GuardState
                 hasStartedShooting = true;
                 context.parentObj.StartCoroutine(ShootingHandler);
             }
+        } else
+        {
+            target = GameObject.FindWithTag("Player");
         }
 
         context.animator.SetFloat("Speed", context.agent.velocity.sqrMagnitude);

@@ -15,7 +15,11 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
     }
 
     [SerializeField]
+    GuardStates startingState = GuardStates.Idle;
+
+    [SerializeField]
     private NPCInfoSO info;
+
 
     [SerializeField]
     private PlayerDetectedAlert alert;
@@ -29,6 +33,7 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
     private Animator animator;
     private NPCVisionN vision;
     private AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -58,7 +63,7 @@ public class GuardBrain : StateManager<GuardBrain.GuardStates>
         States.Add(GuardStates.Patrol, new PatrolState(context, GuardStates.Patrol));
         States.Add(GuardStates.Chase, new ChaseState(context, GuardStates.Chase));
 
-        CurrentState = States[GuardStates.Idle];
+        CurrentState = States[startingState];
     }
 
     public void UpdateIsAlertContext()
