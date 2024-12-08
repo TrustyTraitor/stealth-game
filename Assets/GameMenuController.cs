@@ -20,7 +20,7 @@ public class GameMenuController : MonoBehaviour
     {
         UIController = GetComponentInParent<PlayerUIController>();
 
-        this.resumeBtn.onClick.AddListener( () => { 
+        this.resumeBtn.onClick.AddListener( () => {
             UIController.CurrentMenu = PlayerUIController.OpenMenu.None; 
         });
 

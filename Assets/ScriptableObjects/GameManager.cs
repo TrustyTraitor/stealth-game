@@ -26,4 +26,9 @@ public class GameManager : ScriptableObject
             }
         } 
     }
+
+    private void OnEnable()
+    {
+        this.isInteractingWithUI = false;
+    }
 }
