@@ -11,19 +11,22 @@ public class PlayerUIController : MonoBehaviour
     public GameObject SkillsMenu;
     public GameObject GameMenu;
     public GameObject HeistMenu;
+    public GameObject GameOverMenu;
+
+    public HealthComponent Health;
 
     public enum OpenMenu {
         None,
         Menu,
         Skills,
-        Heist
+        Heist,
+        GameOver
     }
 
     private OpenMenu currentMenu = OpenMenu.None;
     public OpenMenu CurrentMenu {  
         get { return currentMenu; }  
         set {
-            Debug.Log("VAL HERE");
             currentMenu = value;
 
             if (value == OpenMenu.None)
@@ -31,6 +34,7 @@ public class PlayerUIController : MonoBehaviour
                 SetUIMode(ref GameMenu, false);
                 SetUIMode(ref SkillsMenu, false);
                 SetUIMode(ref HeistMenu, false);
+                SetUIMode(ref GameOverMenu, false);
 
                 SetUIMode(ref Hud, true);
             }
@@ -39,6 +43,7 @@ public class PlayerUIController : MonoBehaviour
                 SetUIMode(ref SkillsMenu, false);
                 SetUIMode(ref Hud, false);
                 SetUIMode(ref HeistMenu, false);
+                SetUIMode(ref GameOverMenu, false);
 
                 SetUIMode(ref GameMenu, true, true);
             }
@@ -47,6 +52,7 @@ public class PlayerUIController : MonoBehaviour
                 SetUIMode(ref GameMenu, false);
                 SetUIMode(ref Hud, false);
                 SetUIMode(ref HeistMenu, false);
+                SetUIMode(ref GameOverMenu, false);
 
                 SetUIMode(ref SkillsMenu, true, true);
             }
@@ -55,8 +61,18 @@ public class PlayerUIController : MonoBehaviour
                 SetUIMode(ref GameMenu, false);
                 SetUIMode(ref Hud, false);
                 SetUIMode(ref SkillsMenu, false);
+                SetUIMode(ref GameOverMenu, false);
 
                 SetUIMode(ref HeistMenu, true, true);
+            }
+            else if (value == OpenMenu.GameOver)
+            {
+                SetUIMode(ref GameMenu, false);
+                SetUIMode(ref Hud, false);
+                SetUIMode(ref SkillsMenu, false);
+                SetUIMode(ref HeistMenu, false);
+
+                SetUIMode(ref GameOverMenu, true, true);
             }
         } 
     }
@@ -69,12 +85,24 @@ public class PlayerUIController : MonoBehaviour
     private void Start()
     {
         this.CurrentMenu = this.currentMenu;
+        Health.onZeroHealth += OnPlayerDeath;
+        Time.timeScale = 1;
+    }
+
+    private void OnDisable()
+    {
+        Health.onZeroHealth -= OnPlayerDeath;
+    }
+
+    public void OnPlayerDeath()
+    {
+        Time.timeScale = 0;
+        OpenUI(OpenMenu.GameOver);
     }
 
     public void OpenUI(OpenMenu menu)
     {
         this.CurrentMenu = menu;
-        Debug.Log("here");
     }
 
     void Update()

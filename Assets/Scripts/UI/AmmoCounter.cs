@@ -16,6 +16,11 @@ public class AmmoCounter : MonoBehaviour
 
     private void Awake()
     {
+        if (gun == null)
+        {
+            gun = GameObject.FindWithTag("PlayerWeapon").GetComponent<GunSystem>();
+        }
+
         if (gun != null) 
         {
             gun.onAmmoChange += OnAmmoChange;

@@ -20,10 +20,14 @@ public class CompleteHeistUI : MonoBehaviour
     {
         ui.SetActive(false);
 
-        moneyText.text = $"${inventory.Money}";
         if (Input.GetButtonDown("ContinueHeist"))
         {
             SceneManager.LoadScene("Hideout");
         }
+    }
+
+    private void OnEnable()
+    {
+        moneyText.text = $"${inventory.Money}";
     }
 }

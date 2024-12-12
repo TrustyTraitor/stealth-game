@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Linq;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
@@ -91,15 +94,15 @@ public class InventorySO : ScriptableObject
     }
     public event Action onKeyCardUpdate;
 
-    private void OnDisable()
-    {
-        TotalMoney += Money;
-        Money = 0;
+    //private void OnDisable()
+    //{
+    //    TotalMoney += Money;
+    //    Money = 0;
 
-        TotalXp += xpEarned;
-        xpEarned = 0;
+    //    TotalXp += xpEarned;
+    //    xpEarned = 0;
 
-        Debug.Log($"TotalMoney: {TotalMoney}");
-    }
+    //    Debug.Log($"TotalMoney: {TotalMoney}");
+    //}
 
 }

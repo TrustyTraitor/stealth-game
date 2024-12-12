@@ -16,9 +16,9 @@ MonoBehaviour:
   <weaponDamageMod>k__BackingField: 0
   wpnDmgPercent: 2.5
   wpnDmgPoints: 0
-  <healthMod>k__BackingField: 50
+  <healthMod>k__BackingField: 0
   healthPercent: 5
-  healthPoints: 10
+  healthPoints: 0
   <shieldMod>k__BackingField: 0
   shieldPercent: 2
   shieldPoints: 0

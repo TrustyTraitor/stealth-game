@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skills: {fileID: 11400000, guid: 70eaf692869ee94409ed4685b9ca9339, type: 2}
-  maxHealth: 100
+  MaxHealth: 100
   Health: 100
 --- !u!114 &8869637557713400046
 MonoBehaviour:
@@ -1715,6 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f494effbc8f2f4981308b27744323d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingState: 0
   info: {fileID: 11400000, guid: 2b3c6a2d5f9541844b3542975e160e7a, type: 2}
   alert: {fileID: 11400000, guid: 48a41b3da9559904abb21f00c1c40844, type: 2}
   patrolPoints:

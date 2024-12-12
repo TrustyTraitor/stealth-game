@@ -14,4 +14,9 @@ public class TransitionToSceneSO : InteractActionSO
     {
         SceneManager.LoadScene(scene);
     }
+
+    public void Transition()
+    {
+        this.Execute();
+    }
 }

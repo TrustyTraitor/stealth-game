@@ -23,8 +23,6 @@ public class HealthComponent : MonoBehaviour
         get { return Health; }
         set 
         {
-            //Debug.Log($"Value: {value}");
-            //Debug.Log($"Health: {Health}");
             if (value < health)
             {
                 Health -= (int)((health - value) * (1.0f - (skills.shieldMod/100.0f)));
